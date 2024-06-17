@@ -4,7 +4,7 @@
 #define TRUE 1
 #define FALSE 0
 
-typedef booleano unsigned char;
+typedef unsigned char booleano;
 
 typedef struct elemento
 {	
@@ -20,7 +20,7 @@ typedef struct nodo
 
 typedef nodo* posicion;
 
-typedef posicion arbolbin;
+typedef posicion arbol;
 
 /*Inicializar (Initialize): recibe<-árbol(*A); 
 Initialize (*A)
@@ -78,7 +78,7 @@ Vacia (Empty):recibe<-árbol(*A); retorna -> booleano
 Empty(*A)
 Efecto: Recibe un árbol binario *A y devuelve verdadero en caso de que el árbol *A este vacío, devuelve falso en caso contrario.
 */
-booleano Empty(arbol *A)
+booleano Empty(arbol *A);
 
 
 /*
@@ -142,6 +142,6 @@ Remplazar Nodo(Replace Node):recibe<-árbol(*A), posición (P), elemento (E);
 ReplaceNode(*A,P)
 Efecto: Recibe un árbol binario *A, una posición P y un elemento E, se remplaza a E del nodo con posición P en *A.
 Requerimientos: El árbol binario *A es no vacío y la posición P es una posición valida. */
-void ReplaceNode(arbol *A,posicion P);
+void ReplaceNode(arbol *A,posicion P, elemento E);
 
 #endif
