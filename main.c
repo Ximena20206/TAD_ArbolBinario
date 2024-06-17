@@ -1,3 +1,9 @@
+/*
+    Alumna: Rocha Arellano Ximena Yulian
+    Profesor: Edgardo Franco Martinez
+
+    Compilacion: gcc -o programa main.c Recorridos.c TAD_AB\TADArbolBin.c -o recorridos
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
@@ -17,7 +23,7 @@ int main() {
     Initialize(&A);
 
     // Insertar nodos
-    NewRightSon(&A, Root(&A), e2);  // Añadir nodo derecho a la raíz
+    NewRightSon(&A, Root(&A), e2);  // Añadir nodo derecho a la raíz// pero como es el primero, se va a quedar en la raiz
     NewLeftSon(&A, Root(&A), e1);   // Añadir nodo izquierdo a la raíz
     posicion p2 = RightSon(&A, Root(&A));
     NewRightSon(&A, p2, e4);        // Añadir nodo derecho al hijo derecho de la raíz
