@@ -200,20 +200,34 @@ NewRightSon(*A,P,E)
 Efecto: Recibe un árbol binario *A, una posición P y un elemento E, se añade un nodo que contenga E como hijo derecho del nodo con posición P.
 Requerimientos: El árbol binario *A es no vacío y la posición P es una posición valida. Si el árbol *A es vacío se agrega a un nodo raíz con E. si P ya tiene un hijo derecho, se cancela la operación.
 */
-void NewRightSon(arbol *A,posicion P,elemento E){
-    if(Empty(A)){
-        printf("\nERROR: NewRightSon. Arbol vacío");
-        exit(1);
-    }
-    if (P == NULL){
-        printf("\nERROR: NewRightSon. Posicion no válida");
-        exit(1);
-    }  
-    if (P->der == NULL){
-        P->der = (nodo*)malloc(sizeof(nodo));
-        P->der->e = E;
-        P->der->izq = NULL;
-        P->der->der = NULL;
+void NewRightSon(arbol *A, posicion P, elemento E) {
+    if (*A == NULL) {
+        // Si el árbol está vacío, inicializa la raíz con el nuevo nodo hijo derecho
+         *A = (arbol)malloc(sizeof(struct nodo));
+        (*A)->e = E;
+        (*A)->izq = NULL;
+        (*A)->der = NULL;
+    } else {
+        if (P == NULL) {
+            // Si P es NULL pero el árbol no está vacío, asignamos directamente la raíz como P
+            P = *A;
+        }
+
+        if (P != NULL) {
+            if (P->der == NULL) {
+                // Si P no es NULL y no tiene hijo derecho, se agrega el nuevo nodo como hijo derecho de P
+                P->der = (nodo*)malloc(sizeof(nodo));
+                P->der->e = E;
+                P->der->izq = NULL;
+                P->der->der = NULL;
+            } else {
+                // Si P ya tiene un hijo derecho, se cancela la operación
+                printf("\nERROR: NewRightSon. P ya tiene un hijo derecho.\n");
+            }
+        } else {
+            // Si P es NULL después de intentar asignar la raíz, se genera un mensaje de error
+            printf("\nERROR: NewRightSon. Posición no válida.\n");
+        }
     }
 }
 
@@ -223,20 +237,34 @@ NewLeftSon(*A,P,E)
 Efecto: Recibe un árbol binario *A, una posición P y un elemento E, se añade un nodo que contenga E como hijo izquierdo del nodo con posición P.
 Requerimientos: El árbol binario *A es no vacío y la posición P es una posición valida. Si el árbol *A es vacío se agrega a un nodo raíz con E; si P ya tiene un hijo Izquierdo, se cancela la operación.
 */
-void NewLeftSon(arbol *A,posicion P,elemento E){
-    if(Empty(A)){
-        printf("\nERROR: NewLeftSon. Arbol vacío");
-        exit(1);
-    }
-    if (P == NULL){
-        printf("\nERROR: NewLeftSon. Posicion no válida");
-        exit(1);
-    }  
-    if (P->izq == NULL) {
-        P->izq = (nodo*)malloc(sizeof(nodo));
-        P->izq->e = E;
-        P->izq->izq = NULL;
-        P->izq->der = NULL;
+void NewLeftSon(arbol *A, posicion P, elemento E) {
+    if (*A == NULL) {
+        // Si el árbol está vacío, inicializa la raíz con el nuevo nodo hijo izquierdo
+         *A = (arbol)malloc(sizeof(struct nodo));
+        (*A)->e = E;
+        (*A)->izq = NULL;
+        (*A)->der = NULL;
+    } else {
+        if (P == NULL) {
+            // Si P es NULL pero el árbol no está vacío, asignamos directamente la raíz como P
+            P = *A;
+        }
+
+        if (P != NULL) {
+            if (P->izq == NULL) {
+                // Si P no es NULL y no tiene hijo izquierdo, se agrega el nuevo nodo como hijo izquierdo de P
+                P->izq = (nodo*)malloc(sizeof(nodo));
+                P->izq->e = E;
+                P->izq->izq = NULL;
+                P->izq->der = NULL;
+            } else {
+                // Si P ya tiene un hijo izquierdo, se cancela la operación
+                printf("\nERROR: NewLeftSon. P ya tiene un hijo izquierdo.\n");
+            }
+        } else {
+            // Si P es NULL después de intentar asignar la raíz, se genera un mensaje de error
+            printf("\nERROR: NewLeftSon. Posición no válida.\n");
+        }
     }
 }
 

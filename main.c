@@ -27,7 +27,7 @@ int main() {
 
     // Mostrar recorridos
     printf("Recorrido PreOrden: ");
-    PreOrden(Root(&A));
+    PreOrden(Root(&A));                                       
     printf("\n");
 
     printf("Recorrido InOrden: ");
